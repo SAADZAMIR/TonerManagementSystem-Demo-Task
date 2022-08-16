@@ -1,5 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using ASP.NETCoreIdentityCustom.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <!-- BEGIN: Head-->
@@ -78,13 +80,16 @@
       <div class="shadow-bottom"></div>
       <div class="main-menu-content">
          <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item">
+               
+                    <li class=" nav-item">
                <a class="d-flex align-items-center" href="~/Home/Index">
                   <i data-feather="home"></i>
                   <span class="menu-title text-truncate" data-i18n="Home">Home</span>
                </a>
             </li>
-
+  
+                
+              
             <li class="nav-item">
                <a class="d-flex align-items-center" href="~/Customers/Index">
                   <i data-feather="user"></i>
@@ -92,7 +97,9 @@
                   <span class="badge badge-light-warning rounded-pill ms-auto me-1"></span>
                </a>
                <ul class="menu-content">
-                    <li class="">
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrator"))
+                        {
+                            <li class="">
                      <a class="d-flex align-items-center" href="~/PaperUseages/Index">
                         <i data-feather="circle"></i>
                         <span class="menu-item text-truncate" data-i18n="Customers">Status Log</span>
@@ -110,6 +117,8 @@
                         <span class="menu-item text-truncate" data-i18n="Projects">Projects</span>
                      </a>
                   </li>
+                        }
+                        
 
                     <li>
                      <a class="d-flex align-items-center" href="~/Tonars/Index">
