@@ -23,20 +23,36 @@ namespace ASP.NETCoreIdentityCustom.Controllers
         public IActionResult Index(DateTime? StartDate, DateTime? EndDate, string machinesearch)
         {
             ViewData["GetMachine"] = machinesearch;
-            var applicationDbContext = _context.PaperUseage.Include(p => p.Machine);
-            //var machinequery = from x in _context.PaperUseage select x;
-            if (StartDate.HasValue && EndDate.HasValue ||!String.IsNullOrEmpty(machinesearch))
+            
+            //var applicationDbContext = _context.PaperUseage.Include(p => p.Machine);
+            var applicationDbContext = _context.PaperUseage.Include(p => p.Machine).ThenInclude(pp=> pp.Project).ThenInclude(ppp=> ppp.Customer);
+
+
+
+            if (StartDate.HasValue && EndDate.HasValue || !String.IsNullOrEmpty(machinesearch))
             {
                 //machinequery = machinequery.Where(x => x.Machine.MachineSN.Contains(machinesearch));
-                return View(applicationDbContext.Where(d => d.DateCreated >=StartDate && d.DateCreated <= EndDate || d.Machine.MachineSN.Contains(machinesearch)).AsEnumerable());
-               
+                return View(applicationDbContext.Where(d => d.DateCreated >= StartDate && d.DateCreated <= EndDate || d.Machine.MachineSN.Contains(machinesearch) || d.Machine.Project.Customer.CustomerName.Contains(machinesearch)).AsEnumerable());
+
             }
             else
             {
-                return View (applicationDbContext.AsNoTracking().AsEnumerable());
+                return View(applicationDbContext.AsEnumerable());
+                //return View(applicationDbContext.AsNoTracking().AsEnumerable());
             }
 
-          
+            //if (StartDate.HasValue && EndDate.HasValue || !String.IsNullOrEmpty(machinesearch))
+            //{
+            //    //machinequery = machinequery.Where(x => x.Machine.MachineSN.Contains(machinesearch));
+            //    return View(applicationDbContext.Where(d => d.DateCreated >= StartDate && d.DateCreated <= EndDate || d.Machine.MachineSN.Contains(machinesearch)).AsEnumerable());
+
+            //}
+            //else
+            //{
+            //    return View(applicationDbContext.AsNoTracking().AsEnumerable());
+            //}
+
+
         }
         //[HttpGet]
         //public async Task<IActionResult> Index(string machinesearch)
