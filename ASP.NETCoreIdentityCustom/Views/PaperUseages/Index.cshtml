@@ -59,17 +59,23 @@
           <thead>
            <tr>
             <th>
-               CurrentUses
+               Machine Model
             </th>
             <th>
                 Machine Serial
             </th>
             <th>
-                 Date Created 
+                 Project Name 
             </th>
           
             <th>
-               Date Modified
+               Customer Name
+            </th>
+            <th>
+               Current Counter
+            </th>
+            <th>
+               Date Created
             </th>
 
             <th>Action</th>
@@ -80,18 +86,25 @@
             {
              <tr>
              <td>
-                @Html.DisplayFor(modelItem => item.CurrentUses)
+                @Html.DisplayFor(modelItem => item.Machine.MachineModel)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Machine.MachineSN)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
+                @Html.DisplayFor(modelItem => item.Machine.Project.ProjectName)
+            </td>
+
+             <td>
+                @Html.DisplayFor(modelItem => item.Machine.Project.Customer.CustomerName)
             </td>
           
             <td>
-                @Html.DisplayFor(modelItem => item.DateModified)
-            </td>         
+                @Html.DisplayFor(modelItem => item.CurrentUses)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td> 
                <td>             
                 <div class="dropdown">
                   <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">

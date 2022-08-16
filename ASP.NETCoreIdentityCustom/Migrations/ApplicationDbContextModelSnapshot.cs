@@ -144,7 +144,7 @@ namespace ASP.NETCoreIdentityCustom.Migrations
 
                     b.HasKey("BlackTonerID");
 
-                    b.ToTable("BlackToners");
+                    b.ToTable("BlackToners", (string)null);
                 });
 
             modelBuilder.Entity("ASP.NETCoreIdentityCustom.Models.Customer", b =>
@@ -181,7 +181,7 @@ namespace ASP.NETCoreIdentityCustom.Migrations
 
                     b.HasKey("CustomerId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
                 });
 
             modelBuilder.Entity("ASP.NETCoreIdentityCustom.Models.Machine", b =>
@@ -227,7 +227,7 @@ namespace ASP.NETCoreIdentityCustom.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Machines");
+                    b.ToTable("Machines", (string)null);
                 });
 
             modelBuilder.Entity("ASP.NETCoreIdentityCustom.Models.PaperUse", b =>
@@ -257,7 +257,7 @@ namespace ASP.NETCoreIdentityCustom.Migrations
 
                     b.HasIndex("MachineId");
 
-                    b.ToTable("PaperUseg");
+                    b.ToTable("PaperUseg", (string)null);
                 });
 
             modelBuilder.Entity("ASP.NETCoreIdentityCustom.Models.PaperUseage", b =>
@@ -293,7 +293,7 @@ namespace ASP.NETCoreIdentityCustom.Migrations
 
                     b.HasIndex("MachineId");
 
-                    b.ToTable("PaperUseage");
+                    b.ToTable("PaperUseage", (string)null);
                 });
 
             modelBuilder.Entity("ASP.NETCoreIdentityCustom.Models.Project", b =>
@@ -332,7 +332,7 @@ namespace ASP.NETCoreIdentityCustom.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Projects");
+                    b.ToTable("Projects", (string)null);
                 });
 
             modelBuilder.Entity("ASP.NETCoreIdentityCustom.Models.Toner", b =>
@@ -373,7 +373,7 @@ namespace ASP.NETCoreIdentityCustom.Migrations
                         .IsUnique()
                         .HasFilter("[TonarModel] IS NOT NULL");
 
-                    b.ToTable("Toners");
+                    b.ToTable("Toners", (string)null);
                 });
 
             modelBuilder.Entity("ASP.NETCoreIdentityCustom.Models.TonerConfig", b =>
@@ -411,7 +411,7 @@ namespace ASP.NETCoreIdentityCustom.Migrations
 
                     b.HasIndex("TonarID");
 
-                    b.ToTable("TonerConfigs");
+                    b.ToTable("TonerConfigs", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
