@@ -18,7 +18,14 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+builder.Services.AddDistributedMemoryCache();
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 builder.Services.AddControllersWithViews();
 builder.Services.Configure<IdentityOptions>(o =>
 {
@@ -67,7 +74,7 @@ app.MapControllerRoute(
     pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.MapRazorPages();
-
+app.UseSession();
 app.Run();
 
 
