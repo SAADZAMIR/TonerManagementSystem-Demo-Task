@@ -12,9 +12,11 @@
         public int TonarId { get; set; }
         public int PreviousCounter { get; set; }
         public int[] CurrentCounter { get; set; }
-        public int TotalCounter { get; set; }
+        //public int TotalCounter { get; set; }
         public int MonthlyTotalCounter { get; set; }
         public double TonarPercentage { get; set; }
+        public int TotalCounter { get; set; }
+        public decimal TotalPercentage { get; set; }
         public IList<TonarViewModel> tonarViewModels { get; set; }
 
     }

@@ -21,6 +21,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
     public DbSet<PaperUseage> PaperUseage { get; set; }
     public DbSet<BlackToner> BlackToners { get; set; }
     public DbSet<TonerConfig> TonerConfigs { get; set; }
+    public DbSet<TonerStock> TonerStocks { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

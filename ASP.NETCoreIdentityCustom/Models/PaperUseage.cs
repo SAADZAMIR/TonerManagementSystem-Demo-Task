@@ -8,6 +8,8 @@ namespace ASP.NETCoreIdentityCustom.Models
         public int PaperUseageID { get; set; }
         public int MachineId { get; set; }      
         public int CurrentUses { get; set; }
+        public int TotalCounter { get; set; }
+        public decimal TotalPercentage { get; set; }
         public Machine Machine{ get; set; }
     }
 }
