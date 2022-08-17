@@ -4,6 +4,7 @@ using ASP.NETCoreIdentityCustom.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP.NETCoreIdentityCustom.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220817105952_samima")]
+    partial class samima
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -271,6 +273,9 @@ namespace ASP.NETCoreIdentityCustom.Migrations
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<decimal>("CurrentPercentage")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("CurrentStock")
                         .HasColumnType("int");
 
@@ -292,11 +297,11 @@ namespace ASP.NETCoreIdentityCustom.Migrations
                     b.Property<Guid?>("ModifiedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("TonerPercentage")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("TotalCounter")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("TotalPercentage")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("TotalToner")
                         .HasColumnType("decimal(18,2)");

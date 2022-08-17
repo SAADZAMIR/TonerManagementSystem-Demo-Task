@@ -17,6 +17,9 @@
         public double TonarPercentage { get; set; }
         public int TotalCounter { get; set; }
         public decimal TotalPercentage { get; set; }
+        public int CurrentStock { get; set; }
+        public decimal CurrentPercentage { get; set; }
+        public decimal TotalToner { get; set; }
         public IList<TonarViewModel> tonarViewModels { get; set; }
 
     }

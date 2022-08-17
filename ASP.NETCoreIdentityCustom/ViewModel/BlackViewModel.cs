@@ -23,6 +23,9 @@ namespace ASP.NETCoreIdentityCustom.ViewModel
         public DateTime Date { get; set; }
         public int TotalCounter { get; set; }
         public decimal TotalPercentage { get; set; }
+        public int CurrentStock { get; set; }
+        public decimal CurrentPercentage { get; set; }
+        public decimal TotalToner { get; set; }
 
 
         public string ProjectsName { get; set; }
@@ -38,6 +41,10 @@ namespace ASP.NETCoreIdentityCustom.ViewModel
         public string[] TonersUses { get; set; }
         public int TotalsCounter { get; set; }
         public decimal TotalsPercentage { get; set; }
+
+        public int CurrentsStock { get; set; }
+        public decimal CurrentsPercentage { get; set; }
+        public decimal TotalsToner { get; set; }
         public DateTime Dates { get; set; }
         public IList<Customer> Customers { get; set; }
         public IList<Project> Projects { get; set; }

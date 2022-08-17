@@ -78,7 +78,10 @@ namespace ASP.NETCoreIdentityCustom.Controllers
                             MachineId = model.MachineId[i],
                             CurrentUses = model.CurrentUses[i],
                             TotalCounter = model.TotalCounter,
-                            TotalPercentage = model.TotalPercentage,
+                            TonerPercentage = model.TotalPercentage,
+                            CurrentStock = model.CurrentStock,
+                            //CurrentPercentage = model.CurrentPercentage,
+                            TotalToner = model.TotalToner,
                             DateCreated = DateTime.Now,
                             DateModified = model.Date
                         };
@@ -103,7 +106,10 @@ namespace ASP.NETCoreIdentityCustom.Controllers
                             MachineId = model.MachineIDs[i],
                             CurrentUses = model.CurrentsUses[i],
                             TotalCounter = model.TotalsCounter,
-                            TotalPercentage = model.TotalsPercentage,
+                            TonerPercentage = model.TotalsPercentage,
+                            CurrentStock = model.CurrentsStock,
+                            //CurrentPercentage = model.CurrentsPercentage,
+                            TotalToner = model.TotalsToner,
                             DateCreated = DateTime.Now,
                             DateModified = model.Date
                         };
@@ -154,7 +160,7 @@ namespace ASP.NETCoreIdentityCustom.Controllers
                             y.MachineId,
                             y.CurrentUses,
                             y.TotalCounter,
-                            y.TotalPercentage,
+                            y.TonerPercentage,
                             y.DateCreated
                         }).ToList();
             data.ForEach(x =>
@@ -188,7 +194,7 @@ namespace ASP.NETCoreIdentityCustom.Controllers
                             y.MachineId,
                             y.CurrentUses,
                             y.TotalCounter,
-                            y.TotalPercentage,
+                            y.TonerPercentage,
                             y.DateCreated
                         }).ToList();
             data1.ForEach(x =>
