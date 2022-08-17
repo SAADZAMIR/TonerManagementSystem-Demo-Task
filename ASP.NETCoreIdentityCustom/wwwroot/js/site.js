@@ -112,7 +112,7 @@ function GetProjectbyproject(event) {
                             <td><input name='PreviousUses' readonly class="form-control" value="${item.currentUses}" id="previousUseages${item.machineId}" /></td>
                             <td><input name='CurrentUses' onclick="changeCurrentuseage(${item.machineId})" id="currentUseges${item.machineId}" class="form-control currentUse" value="${currentUse}" /></td>
                             <td><input name='TotalCounter' readonly class="form-control totalUsegess" id="totalUseges${item.machineId}" value="${totalUse}"  /></td>
-                            <td><input name='TonerUsges' onclick="changetoneruseage(${item.tonerConfigs[0]?.tonarID})" id="total${item.tonerConfigs[0]?.tonarID}" class="form-control total${item.tonerConfigs[0]?.tonarID}" /></td>
+                            <td><input name='TotalPercentage' onclick="changetoneruseage(${item.tonerConfigs[0]?.tonarID})" id="total${item.tonerConfigs[0]?.tonarID}" class="form-control total${item.tonerConfigs[0]?.tonarID}" /></td>
                         </tr>`
                         $("#machinedata").append(data);
                         item.tonerConfigs.forEach(function (i) {
@@ -164,10 +164,9 @@ function GetProjectbyproject(event) {
                                         <td>${item.machineSN}</td>             
                                         <td>${item.machineModel}</td>
                                         <td>${item.tonerConfigs[0]?.toner?.tonarModel}</td>
-                                        
 	                                    <td><input name="PreviousesUses" readonly="" class="form-control" value="${item.currentUses}" id="PreviousesUses${item.machineId}"></td>
 	                                    <td><input name="CurrentsUses" onclick="changecolorCurrentuseage(${item.machineId})" id="CurrentsUses${item.machineId}" class="form-control currentUse"></td>
-	                                    <td><input name="Totalsuses" readonly="" class="form-control Totalsuses" id="Totalsuses${item.machineId}" value=""></td>
+	                                    <td><input name="TotalsCounter" readonly="" class="form-control Totalsuses" id="Totalsuses${item.machineId}" value=""></td>
 	                                    <td class="d-flex justify-content-center align-items-center" id="tonerdetails${item.machineId}">
                                         ${tonerdetails}
 	                                    </td>
@@ -176,7 +175,7 @@ function GetProjectbyproject(event) {
                         item.tonerConfigs.forEach(function (i) {
                             tonerdetails += `<div class="text-center">
 			                                    <label style="background:#ababab; color: black; padding: 8px;">${i.toner.tonarModel}</label><br>
-			                                    <input name="TonersUses" class="form-control px-0 total${i.tonarID}" onclick="changecolortoneruseage(${i.tonarID})">
+			                                    <input name="TotalsPercentage" class="form-control px-0 total${i.tonarID}" onclick="changecolortoneruseage(${i.tonarID})">
                                             </div>`
                             tonerIdList.push(i);
 
