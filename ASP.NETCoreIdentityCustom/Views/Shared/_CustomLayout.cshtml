@@ -59,10 +59,7 @@
             <li class="nav-item me-auto">
                <a class="navbar-brand" href="~/Home/Index">
                   <span class="brand-logo">
-                      
-
                         <img class="img-responsive2" style="height:30px;width:100px" src="/uploads/Arc ISP.png">
-                
                   </span>
                   <h2 class="brand-text">Ecxel_Tech</h2>
                </a>
@@ -87,9 +84,8 @@
                   <span class="menu-title text-truncate" data-i18n="Home">Home</span>
                </a>
             </li>
-  
-                
-              
+             @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrator"))
+             {
             <li class="nav-item">
                <a class="d-flex align-items-center" href="~/Customers/Index">
                   <i data-feather="user"></i>
@@ -97,8 +93,7 @@
                   <span class="badge badge-light-warning rounded-pill ms-auto me-1"></span>
                </a>
                <ul class="menu-content">
-                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrator"))
-                        {
+                       
                             <li class="">
                      <a class="d-flex align-items-center" href="~/PaperUseages/Index">
                         <i data-feather="circle"></i>
@@ -117,10 +112,7 @@
                         <span class="menu-item text-truncate" data-i18n="Projects">Projects</span>
                      </a>
                   </li>
-                        }
-                        
-
-                    <li>
+                  <li>
                      <a class="d-flex align-items-center" href="~/Tonars/Index">
                         <i data-feather="circle"></i>
                         <span class="menu-item text-truncate" data-i18n="Tonars">Toners</span>
@@ -147,56 +139,79 @@
                         <span class="menu-item text-truncate" data-i18n="TonarUsages">User Role</span>
                      </a>
                   </li>
+                       
                    
                </ul>
             </li>
+             }
+             @if (SignInManager.IsSignedIn(User) && User.IsInRole("Manager"))
+                {
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center" href="~/Customers/Index">
+                  <i data-feather="user"></i>
+                  <span class="menu-title text-truncate" data-i18n="Admin">Manager</span>
+                  <span class="badge badge-light-warning rounded-pill ms-auto me-1"></span>
+               </a>
+               <ul class="menu-content">
+                       
+                            <li class="">
+                     <a class="d-flex align-items-center" href="~/PaperUseages/Index">
+                        <i data-feather="circle"></i>
+                        <span class="menu-item text-truncate" data-i18n="Customers">Status Log</span>
+                     </a>
+                  </li>
+                  <li class="">
+                     <a class="d-flex align-items-center" href="~/Customers/Index">
+                        <i data-feather="circle"></i>
+                        <span class="menu-item text-truncate" data-i18n="Customers">Customers</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a class="d-flex align-items-center" href="~/Projects/Index">
+                        <i data-feather="circle"></i>
+                        <span class="menu-item text-truncate" data-i18n="Projects">Projects</span>
+                     </a>
+                  </li>
+                  <li>
+                     <a class="d-flex align-items-center" href="~/Tonars/Index">
+                        <i data-feather="circle"></i>
+                        <span class="menu-item text-truncate" data-i18n="Tonars">Toners</span>
+                     </a>
+                  </li>
 
+                  <li>
+                     <a class="d-flex align-items-center" href="~/Machines/Index">
+                        <i data-feather="circle"></i>
+                        <span class="menu-item text-truncate" data-i18n="Machines">Machines</span>
+                     </a>
+                  </li>
 
-
+                  <li>
+                     <a class="d-flex align-items-center" href="~/TonerConfigs/Index">
+                        <i data-feather="circle"></i>
+                        <span class="menu-item text-truncate" data-i18n="Toner Configuration">Toner Setting</span>
+                     </a>
+                  </li>    
+                   
+               </ul>
+            </li>
+            }
 
             <li class="nav-item">
                <a class="d-flex align-items-center" href="~/MachineData/GetMAchine">
                   <i data-feather="disc"></i>
                   <span class="menu-title text-truncate" data-i18n="Admin">Page Counter</span>
-                  <span class="badge badge-light-warning rounded-pill ms-auto me-1">2</span>
+                  <span class="badge badge-light-warning rounded-pill ms-auto me-1"></span>
                </a>
-               @*<ul class="menu-content">
-
-                  <li>
-                     <a class="d-flex align-items-center" href="~/MachineData/GetMAchine">
-                        <i data-feather="circle"></i>
-                        <span class="menu-item text-truncate" data-i18n="TonarUsages">B&W Page Counter</span>
-                     </a>
-                  </li>
-
-                  <li>
-                     <a class="d-flex align-items-center" href="~/ColorToner/GetcolorData">
-                        <i data-feather="circle"></i>
-                        <span class="menu-item text-truncate" data-i18n="TonarUsages">Color Page Counter</span>
-                     </a>
-                  </li>
-                   
-               </ul>*@
+               <li class="nav-item">
+               <a class="d-flex align-items-center" href="~/Report/Print">
+                  <i data-feather="disc"></i>
+                  <span class="menu-title text-truncate" data-i18n="Admin">Report</span>
+                  <span class="badge badge-light-warning rounded-pill ms-auto me-1"></span>
+               </a>
+              
             </li>
 
-
-
-@*
-              <li class=" nav-item"><a class="d-flex align-items-center" href="~/MachineData/GetMAchine">
-                    <i data-feather="printer"></i><span class="menu-title text-truncate" data-i18n="Print">Machine Counter</span></a>
-                </li>*@
-                
-@*                <li class=" nav-item"><a class="d-flex align-items-center" href="#">
-                    <i data-feather="printer"></i><span class="menu-title text-truncate" data-i18n="Print">Print</span></a>
-                </li>*@
-                
-                @*<li class=" nav-item"><a class="d-flex align-items-center" href="~/Home/Privacy">
-                    <i data-feather="eye"></i><span class="menu-title text-truncate" data-i18n="Privacy">Review</span></a>
-                </li>
-
-                <li class=" nav-item"><a class="d-flex align-items-center" href="">
-                   <i data-feather="file"></i><span class="menu-title text-truncate" data-i18n="Privacy">Report</span></a>
-                </li>*@
                  <li class="nav-item"><a class="d-flex align-items-center" href="">                               
                      <i data-feather="alert-circle"></i>
                        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Login", "Account", new { area = "" })">
