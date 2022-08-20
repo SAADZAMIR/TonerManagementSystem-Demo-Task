@@ -18,6 +18,11 @@ namespace ASP.NETCoreIdentityCustom.ViewModel
         public int[] CurrentUses { get; set; }
         public int Totaluses { get; set; }
         public string TonerUses { get; set; }
+        public int TotalCounter { get; set; }
+        public decimal TotalPercentage { get; set; }
+        public int CurrentStock { get; set; }
+        public decimal CurrentPercentage { get; set; }
+        public decimal TotalToner { get; set; }
         public DateTime Date { get; set; }
         public IList<Customer> Customers { get; set; }
         public IList<Project> Projects { get; set; }

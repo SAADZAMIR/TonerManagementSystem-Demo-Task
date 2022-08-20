@@ -112,7 +112,7 @@ function GetProjectbyproject(event) {
                             <td><input name='PreviousUses' readonly class="form-control" value="${item.currentUses}" id="previousUseages${item.machineId}" /></td>
                             <td><input name='CurrentUses' onclick="changeCurrentuseage(${item.machineId})" id="currentUseges${item.machineId}" class="form-control currentUse" value="${currentUse}" /></td>
                             <td><input name='TotalCounter' readonly class="form-control totalUsegess" id="totalUseges${item.machineId}" value="${totalUse}"  /></td>
-                            <td><input name='TonerUsges' onclick="changetoneruseage(${item.tonerConfigs[0]?.tonarID})" id="total${item.tonerConfigs[0]?.tonarID}" class="form-control total${item.tonerConfigs[0]?.tonarID}" /></td>
+                            <td><input name='TotalPercentage' onclick="changetoneruseage(${item.tonerConfigs[0]?.tonarID})" id="total${item.tonerConfigs[0]?.tonarID}" class="form-control total${item.tonerConfigs[0]?.tonarID}" /></td>
                         </tr>`
                         $("#machinedata").append(data);
                         item.tonerConfigs.forEach(function (i) {
@@ -132,9 +132,9 @@ function GetProjectbyproject(event) {
                 result.forEach(function (r) {
                     tonerData = `<tr>
                             <td>${r.toner.tonarModel}</td>
-                            <td><input name='TotalUsges' onclick=changetotaltoner(${r.tonarID}) class="form-control"" id="currentStocks${r.tonarID}" value="${currentStock}" /></td>
-                            <td><input name='TotalUsges' readonly class="form-control"" id="current${r.tonarID}" value="${currentPercentage}" /></td>
-                            <td><input name='TotalUsges' class="form-control"" id="totalTonners${r.tonarID}" value="${totalToner}" /></td>
+                            <td><input name='CurrentStock' onclick=changetotaltoner(${r.tonarID}) class="form-control"" id="currentStocks${r.tonarID}" value="${currentStock}" /></td>
+                            <td><input name='CurrentPercentage' readonly class="form-control"" id="current${r.tonarID}" value="${currentPercentage}" /></td>
+                            <td><input name='TotalToner' class="form-control"" id="totalTonners${r.tonarID}" value="${totalToner}" /></td>
                             </tr>`
                     $("#tonerData").append(tonerData);
                     console.log(r);
@@ -164,10 +164,9 @@ function GetProjectbyproject(event) {
                                         <td>${item.machineSN}</td>             
                                         <td>${item.machineModel}</td>
                                         <td>${item.tonerConfigs[0]?.toner?.tonarModel}</td>
-                                        
 	                                    <td><input name="PreviousesUses" readonly="" class="form-control" value="${item.currentUses}" id="PreviousesUses${item.machineId}"></td>
 	                                    <td><input name="CurrentsUses" onclick="changecolorCurrentuseage(${item.machineId})" id="CurrentsUses${item.machineId}" class="form-control currentUse"></td>
-	                                    <td><input name="Totalsuses" readonly="" class="form-control Totalsuses" id="Totalsuses${item.machineId}" value=""></td>
+	                                    <td><input name="TotalsCounter" readonly="" class="form-control Totalsuses" id="Totalsuses${item.machineId}" value=""></td>
 	                                    <td class="d-flex justify-content-center align-items-center" id="tonerdetails${item.machineId}">
                                         ${tonerdetails}
 	                                    </td>
@@ -176,7 +175,7 @@ function GetProjectbyproject(event) {
                         item.tonerConfigs.forEach(function (i) {
                             tonerdetails += `<div class="text-center">
 			                                    <label style="background:#ababab; color: black; padding: 8px;">${i.toner.tonarModel}</label><br>
-			                                    <input name="TonersUses" class="form-control px-0 total${i.tonarID}" onclick="changecolortoneruseage(${i.tonarID})">
+			                                    <input name="TotalsPercentage" class="form-control px-0 total${i.tonarID}" onclick="changecolortoneruseage(${i.tonarID})">
                                             </div>`
                             tonerIdList.push(i);
 
@@ -205,9 +204,9 @@ function GetProjectbyproject(event) {
                 result.forEach(function (r) {
                     tonerData = `<tr>
                             <td>${r.toner.tonarModel}</td>                           
-                            <td><input name='TotalUsges' onclick=changecolortotaltoner(${r.tonarID}) class="form-control"" id="currentsStocks${r.tonarID}" value="${currentStock}" /></td>
-                            <td><input name='TotalUsges' readonly class="form-control"" id="currents${r.tonarID}" value="${currentPercentage}" /></td>
-                            <td><input name='TotalUsges' class="form-control"" id="totalsTonners${r.tonarID}" value="${totalToner}" /></td>
+                            <td><input name='CurrentsStock' onclick=changecolortotaltoner(${r.tonarID}) class="form-control"" id="currentsStocks${r.tonarID}" value="${currentStock}" /></td>
+                            <td><input name='CurrentsPercentage' readonly class="form-control"" id="currents${r.tonarID}" value="${currentPercentage}" /></td>
+                            <td><input name='TotalsToner' class="form-control"" id="totalsTonners${r.tonarID}" value="${totalToner}" /></td>
                             </tr>`
                     $("#colortonerData").append(tonerData);
                     console.log(r);

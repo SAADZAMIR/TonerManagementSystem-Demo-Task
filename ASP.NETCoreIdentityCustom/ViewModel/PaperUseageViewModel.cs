@@ -10,6 +10,11 @@ namespace ASP.NETCoreIdentityCustom.ViewModel
         public bool colorType { get; set; }
         public int ProjectId { get; set; }
         public int CurrentUses { get; set; }
+        public int TotalCounter { get; set; }
+        public decimal TotalPercentage { get; set; }
+        public int CurrentStock { get; set; }
+        public decimal CurrentPercentage { get; set; }
+        public int TotalToner { get; set; }
         public DateTime? Date { get; set; }
         public IList<TonerConfig> TonerConfigs { get; set; }
     }
