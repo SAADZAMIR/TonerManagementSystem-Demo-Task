@@ -17,7 +17,6 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
     public DbSet<Project> Projects { get; set; }
     public DbSet<Machine> Machines { get; set; }
     public DbSet<Toner> Toners { get; set; }
-    public DbSet<PaperUse> PaperUseg { get; set; }
     public DbSet<PaperUseage> PaperUseage { get; set; }
     public DbSet<BlackToner> BlackToners { get; set; }
     public DbSet<TonerConfig> TonerConfigs { get; set; }
