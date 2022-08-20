@@ -149,7 +149,7 @@
                     <li class="nav-item">
                         <a class="d-flex align-items-center" href="~/Customers/Index">
                   <i data-feather="user"></i>
-                  <span class="menu-title text-truncate" data-i18n="Admin">Admin</span>
+                  <span class="menu-title text-truncate" data-i18n="Admin">Manager</span>
                   <span class="badge badge-light-warning rounded-pill ms-auto me-1"></span>
                </a>
                <ul class="menu-content">
@@ -201,11 +201,17 @@
                <a class="d-flex align-items-center" href="~/MachineData/GetMAchine">
                   <i data-feather="disc"></i>
                   <span class="menu-title text-truncate" data-i18n="Admin">Page Counter</span>
-                  <span class="badge badge-light-warning rounded-pill ms-auto me-1">2</span>
+                  <span class="badge badge-light-warning rounded-pill ms-auto me-1"></span>
+               </a>
+               <li class="nav-item">
+               <a class="d-flex align-items-center" href="~/Report/Print">
+                  <i data-feather="disc"></i>
+                  <span class="menu-title text-truncate" data-i18n="Admin">Report</span>
+                  <span class="badge badge-light-warning rounded-pill ms-auto me-1"></span>
                </a>
               
             </li>
-3
+
                  <li class="nav-item"><a class="d-flex align-items-center" href="">                               
                      <i data-feather="alert-circle"></i>
                        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Login", "Account", new { area = "" })">
