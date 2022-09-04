@@ -1,6 +1,7 @@
 ﻿using ASP.NETCoreIdentityCustom.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace ASP.NETCoreIdentityCustom.Core.ViewModels
 {

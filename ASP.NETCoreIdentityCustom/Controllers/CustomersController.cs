@@ -9,6 +9,7 @@ using ASP.NETCoreIdentityCustom.Areas.Identity.Data;
 using ASP.NETCoreIdentityCustom.Models;
 using Microsoft.AspNetCore.Authorization;
 using ASP.NETCoreIdentityCustom.Core;
+using Microsoft.Extensions.Logging;
 
 namespace ASP.NETCoreIdentityCustom.Controllers
 {

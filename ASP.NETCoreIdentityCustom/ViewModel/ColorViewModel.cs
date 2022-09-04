@@ -1,4 +1,6 @@
 ﻿using ASP.NETCoreIdentityCustom.Models;
+using System;
+using System.Collections.Generic;
 
 namespace ASP.NETCoreIdentityCustom.ViewModel
 {

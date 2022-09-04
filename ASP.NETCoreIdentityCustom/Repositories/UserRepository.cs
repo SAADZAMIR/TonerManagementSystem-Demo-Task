@@ -1,5 +1,7 @@
 ﻿using ASP.NETCoreIdentityCustom.Areas.Identity.Data;
 using ASP.NETCoreIdentityCustom.Core.Repositories;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ASP.NETCoreIdentityCustom.Repositories
 {

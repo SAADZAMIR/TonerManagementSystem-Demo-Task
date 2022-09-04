@@ -1,4 +1,6 @@
-﻿namespace ASP.NETCoreIdentityCustom.ViewModel
+﻿using System.Collections.Generic;
+
+namespace ASP.NETCoreIdentityCustom.ViewModel
 {
     public class BWViewModel
     {

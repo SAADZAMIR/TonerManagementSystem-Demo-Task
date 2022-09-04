@@ -1,4 +1,6 @@
-﻿namespace ASP.NETCoreIdentityCustom.Models
+﻿using System;
+
+namespace ASP.NETCoreIdentityCustom.Models
 {
     public class BaseModel
     {

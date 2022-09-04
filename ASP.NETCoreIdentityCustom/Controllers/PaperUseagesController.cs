@@ -20,11 +20,14 @@ namespace ASP.NETCoreIdentityCustom.Controllers
         }
 
         // GET: PaperUseages
-        public IActionResult Index(DateTime? StartDate, DateTime? EndDate, string machinesearch)
+        public IActionResult Index(DateTime? StartDate, DateTime? EndDate, string machinesearch,string? UserId)
         {
             ViewData["GetMachine"] = machinesearch;
-            
-            //var applicationDbContext = _context.PaperUseage.Include(p => p.Machine);
+            var users = from u in _context.Users
+                        select u;
+
+            ViewBag.User = users.Select(x => new SelectListItem { Text = x.UserName, Value = x.Id,Selected=(UserId!=null&& UserId==x.Id?true:false) }).ToList();
+             //var applicationDbContext = _context.PaperUseage.Include(p => p.Machine);
             var applicationDbContext = _context.PaperUseage.Include(p => p.Machine).ThenInclude(pp=> pp.Project).ThenInclude(ppp=> ppp.Customer);
 
 
@@ -32,7 +35,7 @@ namespace ASP.NETCoreIdentityCustom.Controllers
             if (StartDate.HasValue && EndDate.HasValue || !String.IsNullOrEmpty(machinesearch))
             {
                 //machinequery = machinequery.Where(x => x.Machine.MachineSN.Contains(machinesearch));
-                return View(applicationDbContext.Where(d => d.DateCreated >= StartDate && d.DateCreated <= EndDate || d.Machine.MachineSN.Contains(machinesearch) || d.Machine.Project.Customer.CustomerName.Contains(machinesearch)).AsEnumerable());
+                return View(applicationDbContext.Where(d => d.DateCreated >= StartDate && d.DateCreated <= EndDate || d.Machine.MachineSN.Contains(machinesearch) || d.Machine.Project.Customer.CustomerName.Contains(machinesearch)||d.UserId.Contains(UserId)).AsEnumerable());
 
             }
             else

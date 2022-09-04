@@ -271,9 +271,14 @@ namespace ASP.NETCoreIdentityCustom.Migrations
                     b.Property<decimal>("TotalToner")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("PaperUseageID");
 
                     b.HasIndex("MachineId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("PaperUseage");
                 });
@@ -592,7 +597,13 @@ namespace ASP.NETCoreIdentityCustom.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ASP.NETCoreIdentityCustom.Areas.Identity.Data.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
                     b.Navigation("Machine");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ASP.NETCoreIdentityCustom.Models.Project", b =>

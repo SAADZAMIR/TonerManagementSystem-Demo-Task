@@ -6,6 +6,11 @@ using ASP.NETCoreIdentityCustom.Core.Repositories;
 using ASP.NETCoreIdentityCustom.Repositories;
 using Serilog;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using System;
+using Microsoft.Extensions.Hosting;
 
 //var builder = WebApplication.CreateBuilder(args);
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
@@ -25,7 +30,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddMvc();
+builder.Services.AddMvc().AddRazorRuntimeCompilation();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromSeconds(10);

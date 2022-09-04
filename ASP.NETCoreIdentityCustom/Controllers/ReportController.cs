@@ -1,4 +1,5 @@
 ﻿using AspNetCore.Reporting;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ASP.NETCoreIdentityCustom.Controllers

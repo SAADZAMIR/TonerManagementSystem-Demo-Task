@@ -36,18 +36,20 @@
              <div style="display: flex; justify-content: center; align-items: center;">
               <img src="~/app-assets/images/banner/photo_kk.png" alt="" srcset="" style=" display: block; margin-left: auto; margin-right: auto; width: 20%;" />
             </div>
-            <div class="col-md-6 offset-3 mb-2">              
-                Submit Date: <input name="date" id="submitDate" type="date" class="form-control" />
-                 
-                Customer Name: <select style="background-color:beige" required class="form-control" name="CustomerId" asp-items="@(new SelectList(ViewData["CustomerId"] as List<Customer>,"CustomerId","CustomerName"))" id=CustomerList onchange="GetProjectbycustomer(event)">
-                    <option value="0">Select Customer</option>
-                </select> <br />
-                Project Name:
-                <select value="ProjectId" name="ProjectId" id="projectId" required class="form-control" onchange="GetProjectbyproject(event)">
-                    <option value="0">Select Project</option>
-                </select>
+             <div class="col-md-6 offset-3 mb-2">
+                 Submit Date: <input name="date" id="submitDate" type="date" class="form-control" />
+
+                 Customer Name: <select style="background-color:beige" required class="form-control" name="CustomerId" asp-items="@(new SelectList(ViewData["CustomerId"] as List<Customer>,"CustomerId","CustomerName"))" id=CustomerList onchange="GetProjectbycustomer(event)">
+                     <option value="0">Select Customer</option>
+                 </select> <br />
+                 Project Name:
+                
+                 <select  required class="form-control" name="projectId" asp-items="@(new SelectList(ViewData["ProjectId"] as List<Project>,"ProjectId","ProjectName"))" id=projectId onchange="GetProjectbyproject(event)">
+                     <option value="0">Select Customer</option>
+                 </select>
+
                  @*asp-items="@(new SelectList(ViewData["ProjectId"] as List<Project>,"ProjectId","ProjectName"))"*@
-            </div>
+             </div>
             <section  class="invoice-list-wrapper white_list"  style="display:none">
                 <div class="card" id="parentPdf">
                     <div class="card-datatable table-responsive">

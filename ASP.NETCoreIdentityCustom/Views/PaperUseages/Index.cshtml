@@ -7,129 +7,147 @@
 
 
 <div class="app-content content ">
-   <div class="content-overlay"></div>
-   <div class="header-navbar-shadow">
-   </div>
-   <div class="content-wrapper container-xxl p-0">
-<header class="header fixed-top">
-<a href="#" class="logo"><img src="images/logo.png" alt=""></a>
-<nav >
-  <ul>
-      <li><a  href="~/PaperUseages/Index">Status Log</a></li>
-    <li><a  href="~/Customers/Index">Customers</a></li>
-    <li><a href="~/Projects/Index">Project</a></li>
-    <li><a  href="~/Tonars/Index">Toner</a></li>
-    <li><a  href="~/Machines/Index">Machine</a></li>
-    <li><a  href="~/TonerConfigs/Index">Toner Setting</a></li>
-    <li><a  href="~/User/Index">User Role</a></li>
-    <li><a  href="~/MachineData/GetMAchine">Page counter </a></li>
-  </ul>
-</nav>
-
-<div class="fas fa-bars"></div>
-
-</header>
-       
-   <div class="row" id="table-small">
-      <div class="col-12">
-        
-       <div class="card">
-        <div class="card-header">
-               <div style="display: flex; justify-content: center; align-items: center;">
-         <img src="~/app-assets/images/banner/photo_kk.png" alt="" srcset="" style=" display: block; margin-left: auto; margin-right: auto; width: 20%;" />
-        </div>
-         <form asp-action="Index" asp-controller="PaperUseages" method="get">
-           <p>
-               <input type="search" placeholder="Enter Machine serial No." value="@ViewData["GetMachine"]" name="machinesearch" style="width:500px;" />
-               <input type="submit" value="Search" class="btn btn-secondary" />
-               <a asp-action="Index" class="btn btn-warning" >All Data</a>
-           </p>
-
-        <span class="btn btn-primary" >StartDate :</span> <input type="date" name="StartDate"  />
-        <span class="btn btn-success" >EndDate :</span > <input type="date" name="EndDate" />
-        <input class="btn btn-info" type="submit" value="Get Records" />
-
-       </form>
-         <h4 class="card-title">Status Log</h4>
-        </div>
-        <div class="card-body">
-        </div>
-      <div class="table-responsive">
-        <table class="table table-sm">
-          <thead>
-           <tr>
-            <th>
-               Machine Model
-            </th>
-            <th>
-                Machine Serial
-            </th>
-            <th>
-                 Project Name 
-            </th>
-          
-            <th>
-               Customer Name
-            </th>
-            <th>
-               Current Counter
-            </th>
-            <th>
-               Date Created
-            </th>
-
-            <th>Action</th>
-        </tr>
-          </thead>
-          <tbody> 
-            @foreach (var item in Model)
-            {
-             <tr>
-             <td>
-                @Html.DisplayFor(modelItem => item.Machine.MachineModel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Machine.MachineSN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Machine.Project.ProjectName)
-            </td>
-
-             <td>
-                @Html.DisplayFor(modelItem => item.Machine.Project.Customer.CustomerName)
-            </td>
-          
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentUses)
-            </td> 
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
-            </td> 
-               <td>             
-                <div class="dropdown">
-                  <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
-                    <i data-feather="more-vertical"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-end">
-
-                    <a class="dropdown-item" asp-action="Delete" class="btn btn-danger" asp-route-id="@item.PaperUseageID">
-                      <i data-feather="trash" class="me-50"></i>
-                      <span>Reset</span>
-                    </a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            }
-          </tbody>
-        </table>
-      </div>
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow">
     </div>
-  </div>
-</div>
-</div>
-</div>
+    <div class="content-wrapper container-xxl p-0">
+        <header class="header fixed-top">
+            <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+            <nav>
+                <ul>
+                    <li><a href="~/PaperUseages/Index">Status Log</a></li>
+                    <li><a href="~/Customers/Index">Customers</a></li>
+                    <li><a href="~/Projects/Index">Project</a></li>
+                    <li><a href="~/Tonars/Index">Toner</a></li>
+                    <li><a href="~/Machines/Index">Machine</a></li>
+                    <li><a href="~/TonerConfigs/Index">Toner Setting</a></li>
+                    <li><a href="~/User/Index">User Role</a></li>
+                    <li><a href="~/MachineData/GetMAchine">Page counter </a></li>
+                </ul>
+            </nav>
 
+            <div class="fas fa-bars"></div>
+
+        </header>
+
+        <div class="row" id="table-small">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <img src="~/app-assets/images/banner/photo_kk.png" alt="" srcset="" style=" display: block; margin-left: auto; margin-right: auto; width: 20%;" />
+                        </div>
+                        <form asp-action="Index" asp-controller="PaperUseages" method="get">
+                            <p>
+                                <input type="search" placeholder="Enter Machine serial No." value="@ViewData["GetMachine"]" name="machinesearch" style="width:500px;" />
+                                <input type="submit" value="Search" class="btn btn-secondary" />
+                                <a asp-action="Index" class="btn btn-warning">All Data</a>
+                            </p>
+
+                            <span class="btn btn-primary">StartDate :</span> <input type="date" name="StartDate" />
+                            <span class="btn btn-success">EndDate :</span> <input type="date" name="EndDate" />
+                            <input class="btn btn-info" type="submit" value="Get Records" />
+                            @if (ViewContext.HttpContext.User.IsInRole("Administrator") || ViewContext.HttpContext.User.IsInRole("Manager"))
+                            {
+                                // Do something here
+
+                                <span class="card-header">User's :</span>
+                                <select name="products" class="form-control" asp-items="@ViewBag.User" name="UserId" id="UserId" onchange="this.form.submit()">
+                                    <option value="0">--Select User--</option>
+
+                                </select>
+                            }
+
+                        </form>
+                        <h4 class="card-title">Status Log</h4>
+                    </div>
+                    <div class="card-body">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-sm" id="tbl">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Machine Model
+                                    </th>
+                                    <th>
+                                        Machine Serial
+                                    </th>
+                                    <th>
+                                        Project Name
+                                    </th>
+
+                                    <th>
+                                        Customer Name
+                                    </th>
+                                    <th>
+                                        Current Counter
+                                    </th>
+                                    <th>
+                                        Date Created
+                                    </th>
+
+                                    <th>Created By</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Machine.MachineModel)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Machine.MachineSN)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Machine.Project.ProjectName)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Machine.Project.Customer.CustomerName)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CurrentUses)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DateCreated)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CreatedBy)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <button class="btn btn-primary" id="btnExport">Print to pdf</button>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script type="text/javascript">
+    $("body").on("click", "#btnExport", function () {
+        html2canvas($('#tbl')[0], {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("Table.pdf");
+            }
+        });
+    });
+</script>
 
 
 
@@ -150,53 +168,53 @@
 
 @*<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CurrentUses)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Machine)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateCreated)
-            </th>
-          
-            <th>
-                @Html.DisplayNameFor(model => model.DateModified)
-            </th>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CurrentUses)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Machine)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateCreated)
+                </th>
 
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentUses)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Machine.MachineId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
-            </td>
-          
-            <td>
-                @Html.DisplayFor(modelItem => item.DateModified)
-            </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateModified)
+                </th>
 
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PaperUseageID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PaperUseageID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PaperUseageID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentUses)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Machine.MachineId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateModified)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PaperUseageID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PaperUseageID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PaperUseageID">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
 *@

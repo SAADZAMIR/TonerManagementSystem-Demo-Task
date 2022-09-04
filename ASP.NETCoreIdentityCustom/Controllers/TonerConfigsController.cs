@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ASP.NETCoreIdentityCustom.Areas.Identity.Data;
 using ASP.NETCoreIdentityCustom.Models;
 using ASP.NETCoreIdentityCustom.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace ASP.NETCoreIdentityCustom.Controllers
 {

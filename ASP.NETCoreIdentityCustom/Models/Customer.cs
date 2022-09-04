@@ -1,4 +1,5 @@
 ﻿using Microsoft.Build.Evaluation;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ASP.NETCoreIdentityCustom.Models

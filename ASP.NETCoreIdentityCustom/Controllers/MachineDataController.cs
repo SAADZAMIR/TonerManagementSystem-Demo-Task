@@ -3,6 +3,11 @@ using ASP.NETCoreIdentityCustom.Models;
 using ASP.NETCoreIdentityCustom.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace ASP.NETCoreIdentityCustom.Controllers
 {
@@ -21,6 +26,7 @@ namespace ASP.NETCoreIdentityCustom.Controllers
 
         public IActionResult GetMAchine(DateTime date)
         {
+
             ViewData["CustomerId"] = _context.Customers.ToList();
             ViewData["ProjectId"] = _context.Projects.ToList();
             List<BlackColorViewModel> blackViews = new List<BlackColorViewModel>();
@@ -67,6 +73,8 @@ namespace ASP.NETCoreIdentityCustom.Controllers
         [HttpPost]
         public async Task<IActionResult> GetMAchine(BlackViewModel model)
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+       
             if (model.MachineId != null)
             {
                 if (model.MachineId.Length > 0)
@@ -83,7 +91,9 @@ namespace ASP.NETCoreIdentityCustom.Controllers
                             //CurrentPercentage = model.CurrentPercentage,
                             TotalToner = model.TotalToner,
                             DateCreated = DateTime.Now,
-                            DateModified = model.Date
+                            DateModified = model.Date,
+                            UserId=userId
+
                         };
                         _context.Add(paperUseage);
                         await _context.SaveChangesAsync();
@@ -92,34 +102,34 @@ namespace ASP.NETCoreIdentityCustom.Controllers
             }
 
 
-            if (model.MachineIDs != null)
-            {
+            //if (model.MachineIDs != null)
+            //{
 
-                if (model.MachineIDs.Length > 0)
-                {
+            //    if (model.MachineIDs.Length > 0)
+            //    {
 
-                    for (int i = 0; i < model.MachineIDs.Length; i++)
-                    {
+            //        for (int i = 0; i < model.MachineIDs.Length; i++)
+            //        {
 
-                        PaperUseage paperUseage = new PaperUseage
-                        {
-                            MachineId = model.MachineIDs[i],
-                            CurrentUses = model.CurrentsUses[i],
-                            TotalCounter = model.TotalsCounter,
-                            TonerPercentage = model.TotalsPercentage,
-                            CurrentStock = model.CurrentsStock,
-                            //CurrentPercentage = model.CurrentsPercentage,
-                            TotalToner = model.TotalsToner,
-                            DateCreated = DateTime.Now,
-                            DateModified = model.Date
-                        };
-                        _context.Add(paperUseage);
-                        await _context.SaveChangesAsync();
-                    }
-                }
+            //            PaperUseage paperUseage = new PaperUseage
+            //            {
+            //                MachineId = model.MachineIDs[i],
+            //                CurrentUses = model.CurrentsUses[i],
+            //                TotalCounter = model.TotalsCounter,
+            //                TonerPercentage = model.TotalsPercentage,
+            //                CurrentStock = model.CurrentsStock,
+            //                //CurrentPercentage = model.CurrentsPercentage,
+            //                TotalToner = model.TotalsToner,
+            //                DateCreated = DateTime.Now,
+            //                DateModified = model.Date
+            //            };
+            //            _context.Add(paperUseage);
+            //            await _context.SaveChangesAsync();
+            //        }
+            //    }
 
 
-            }
+            //}
 
             //ViewData["ProjectId"] = new SelectList(_context.Projects, "ProjectId", "ProjectName", blackView.ProjectId);
             //ViewData["MachineId"] = new SelectList(_context.Machines, "MachineId", "MachineSN", blackView.MachineId);

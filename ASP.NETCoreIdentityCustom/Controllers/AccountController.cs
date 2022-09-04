@@ -2,6 +2,9 @@
 using ASP.NETCoreIdentityCustom.ViewModel.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Threading.Tasks;
 
 namespace ASP.NETCoreIdentityCustom.Controllers
 {
@@ -41,6 +44,7 @@ namespace ASP.NETCoreIdentityCustom.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    var s = this.User.Identity;
                     var signedUser = await _userManager.FindByEmailAsync(model.Password);
                     
                    
